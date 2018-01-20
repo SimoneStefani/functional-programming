@@ -25,7 +25,8 @@ defmodule Network do
 
       %Message{dst: ^id} = msg ->
         IO.puts("Network layer #{id} received: #{msg.data}")
-        send(master, id, link)
+        send(master, msg)
+        network(master, id, link)
 
       %Message{} ->
         network(master, id, link)
