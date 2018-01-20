@@ -15,11 +15,11 @@ defmodule Test do
   def link_sender() do
     receive do
       {:connect, n} ->
-        IO.puts("Sender connected, sending hello!")
+        IO.puts("Sender connected, sending: hello")
         send(n, {:send, :hello})
         receive do
           msg ->
-            IO.puts("Sender received #{msg}")
+            IO.puts("Sender received: #{msg}")
         end
     end
   end
